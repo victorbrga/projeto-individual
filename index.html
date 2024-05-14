@@ -15,27 +15,25 @@
 </head>
 
 <body>
-    <div class="inicialcard">
         <div class="header">
             <div class="navbar">
-                <a href="C:\Users\victo\OneDrive\Área de Trabalho\faculdade\Pesquisa e inovação\projeto-individual\index.html"> <img src="imgs/imgtitle.png" alt="BK' em Gigantes"></a>
+              <div id="mySidepanel" class="sidepanel">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">Sobre o BK'</a>
+                <a href="#">Projetos</a>
+                <a href="#">Quiz</a>
+                <a href="#">Pergunte aqui</a>
+              </div>
+              
+              <button class="openbtn" onclick="openNav()">&#9776;</button>
+               <img src="imgs/imgtitle.png" alt="BK' em Gigantes"> <span>Tudo sobre o rapper BK'</span>
             </div>  
-        </div> 
-       <img src="imgs/olem/bkfoto5.jpg" alt="BK' Performando" class="banner">
+            <img src="imgs/olem/bkfoto5.jpg" alt="BK' Performando" class="banner">
         <p>Conhecido pelo seu nome artístico BK', é um rapper, escritor e compositor brasileiro considerado um dos nomes mais influentes do cenário do rap brasileiro.</p>
-    </div>
+        </div> 
+       
     
-    <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-      </div>
       
-      <button class="openbtn" onclick="openNav()">&#9776; Toggle Sidepanel</button>
-      <h2>Collapsed Sidepanel</h2>
-      <p>Content...</p>
     
 </body>
 </html>
@@ -43,6 +41,8 @@
 <script> 
 function openNav() {
   document.getElementById("mySidepanel").style.width = "250px";
+  document.getElementById("mySidepanel").style.height = "1080px";
+
 }
 
 /* Set the width of the sidebar to 0 (hide it) */
