@@ -215,7 +215,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: red;
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
@@ -271,7 +271,7 @@ body {
   font-weight: 600;
   font-size: 18px;
   color: #fff;
-  background-color: #e6005a;
+  background-color: navy;
   width: 120px;
   height: 30px;
   align-self: center;

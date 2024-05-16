@@ -2,59 +2,71 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BK' - Tudo sobre o rapper</title>
-    <link rel="shortcut icon" href="imgs/gigantes/98b2976f9f058ca8cafe986e9b898a2d.1000x1000x1.jpg">
-    <link rel="stylesheet" href="css/styleHP.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BK' - Tudo sobre o rapper</title>
+  <link rel="shortcut icon" href="imgs/gigantes/98b2976f9f058ca8cafe986e9b898a2d.1000x1000x1.jpg">
+  <link rel="stylesheet" href="css/styleHP.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-            <div class="navbar">
-              
-              <div id="mySidepanel" class="sidepanel">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">Sobre o BK'</a>
-                <a href="#">Projetos</a>
-                <a href="#">Exposição Icarus</a>
-                <a href="#">Quiz</a>
-                <a href="#">Pergunte aqui</a>
-              </div>
-              
-              <button class="openbtn" onclick="openNav()">&#9776;</button>
-               <img src="imgs/imgtitle.png" alt="BK' em Gigantes"> <span>Tudo sobre o rapper BK'</span>
-               <a href="login.html"><button class="login">Entrar</button></a>
-            </div>  
-            <div class="header">
-            <img src="imgs/olem/bkfoto5.jpg" alt="BK' Performando" class="banner">
-        <p>Conhecido pelo seu nome artístico BK', é um rapper, escritor e compositor brasileiro considerado um dos nomes mais influentes do cenário do rap brasileiro.</p>
-        </div> 
-<div class="sobre">
-        <div id="img-track" data-mouse-down-at ="0" data-prev-percentage="0">
-          <img class="image" src="imgs/castelos&ruinas/castelos&ruinas.png" alt="Capa de 'Castelos & Ruínas'" draggable="false">
-          <img class="image" src="imgs/gigantes/gigantes.png" alt="Capa de 'Gigantes'" draggable="false">
-          <img class="image" src="imgs/olem/lideremmovimento.jpeg" alt="Capa de 'O líder em movimento" draggable="false">
-          <img class="image" src="imgs/icarus/icarus.jpeg" alt="Capa de 'Icarus'" draggable="false">
-        </div>
-      </div>
-          
+  <div class="navbar">
+
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">Sobre o BK'</a>
+      <a href="#">Projetos</a>
+      <a href="#">Exposição Icarus</a>
+      <a href="#">Quiz</a>
+      <a href="#">Pergunte aqui</a>
+    </div>
+
+    <button class="openbtn" onclick="openNav()">&#9776;</button>
+    <img src="imgs/imgtitle.png" alt="BK' em Gigantes"> <span>Tudo sobre o rapper BK'</span>
+    <button class="login" id="clickable">Entrar</button>
+  </div>
+
+  <div class="header">
+    <img src="imgs/olem/bkfoto5.jpg" alt="BK' Performando" class="banner">
+    <p>Conhecido pelo seu nome artístico BK', é um rapper, escritor e compositor brasileiro considerado um dos nomes
+      mais influentes do cenário do rap brasileiro.</p>
+  </div>
+
+  <div class="sobre">
+    SOBRE O BK
+    <!-- <div id="img-track" data-mouse-down-at="0" data-prev-percentage="0">
+      <img class="image" src="imgs/castelos&ruinas/castelos&ruinas.png" alt="Capa de 'Castelos & Ruínas'"
+        draggable="false">
+      <img class="image" src="imgs/gigantes/gigantes.png" alt="Capa de 'Gigantes'" draggable="false">
+      <img class="image" src="imgs/olem/lideremmovimento.jpeg" alt="Capa de 'O líder em movimento" draggable="false">
+      <img class="image" src="imgs/icarus/icarus.jpeg" alt="Capa de 'Icarus'" draggable="false">
+    </div> -->
+  </div>
+
 </body>
+
 </html>
-<script> 
+<script>
 
-function openNav() {
-  document.getElementById("mySidepanel").style.width = "250px";
-  document.getElementById("mySidepanel").style.height = "1080px";
+  var clickab = document.getElementById('clickable');
+  clickab.addEventListener('click', function () {
 
-}
+    window.location.href = 'login.html';
+  });
 
-/* Set the width of the sidebar to 0 (hide it) */
-function closeNav() {
-  document.getElementById("mySidepanel").style.width = "0";
-}
+  function openNav() {
+    document.getElementById("mySidepanel").style.width = "250px";
+    document.getElementById("mySidepanel").style.height = "1080px";
+
+  }
+
+  /* Set the width of the sidebar to 0 (hide it) */
+  function closeNav() {
+    document.getElementById("mySidepanel").style.width = "0";
+  }
 </script>

@@ -50,10 +50,12 @@ body {
   cursor: pointer;
   transition: 0.8s;
   border-radius: 7px;
+  font-family: 'Poppins', monospace;
+  color: whitesmoke;
 }
 
 .login:hover{
-  color: grey;
+  color: grey;  
 }
 
 
@@ -151,6 +153,5 @@ height: 1000px;
 .sobre #img-track{
   display: flex;
   gap: 4vmin;
-  position: absolute;
-  transform: translate(0%, -50%);
+  
 }
