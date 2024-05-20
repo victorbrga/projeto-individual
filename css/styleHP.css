@@ -181,6 +181,7 @@ body {
   object-position: center;
   background-blend-mode: overlay;
   transition: 1s;
+  opacity: 0.3;
 }
 
 .sobre #img-track{
