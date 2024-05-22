@@ -23,6 +23,11 @@
   src: url(..//fonts/Poppins-Regular.ttf);
 }
 
+@font-face {
+  font-family: 'thesignature';
+  src: url(..//fonts/Thesignature.ttf);
+}
+
 body {
   margin: 0%;
   padding: 0%;
@@ -43,6 +48,7 @@ body {
   height: 65px;
   position: fixed;
   border-bottom: 1px solid black;
+  z-index: 200;
 }
 
 .navbar span {
@@ -89,7 +95,7 @@ body {
   width: 100vw;
   height: 75vh;
   object-fit: cover;
-  border-bottom: 2px solid #393939;
+  border-bottom: 2px solid white;
 }
 
 .header p {
@@ -163,7 +169,7 @@ body {
 .sobre {
   background-color: black;
   height: 55vh;
-  border-bottom: 2px solid #393939;
+  /* border-bottom: 2px solid #393939; */
 }
 
 .sobre-title {
@@ -199,6 +205,7 @@ body {
   text-align: center;
   color: white;
   font-size: 20px;
+  font-family: 'Poppins';
 }
 
 /* Estilos específicos para cada card */
@@ -258,7 +265,7 @@ body {
 /* CASTELOS & RUÍNAS */
 
 .casteloseruinas {
-  background-color: grey;
+  background-color: black;
   height: 100vh;
 }
 
@@ -270,20 +277,26 @@ body {
   border-bottom: 2px solid #393939;
 }
 
+.casteloseruinas h3 {
+  font-family: 'thesignature';
+  font-size: 40px;
+  margin-left: 2%;
+  width: 55%;
+  color: black;
+  margin-top: -17%;
+  position: relative;
+}
 .casteloseruinas p {
   font-family: 'poppins';
-  font-size: 60px;
-  margin-left: 2%;
-  width: 35%;
+  font-size: 13px;
+  font-style: italic;
+  margin-left: 70%;
+  width: 30%;
   color: black;
-  margin-top: -35%;
+  margin-top: -110px;
+  position: relative;
 }
 
-i{
-  font-size: 14px;
-  font-family: 'timesnewerroman';
-  margin-bottom: 25%;
-}
 
 .capa-cer {
   height: 25vh;
@@ -304,6 +317,35 @@ i{
 }
 
 .gigantes .correria-banner {
+  padding: 0%;
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  border-bottom: 2px solid #393939;
+}
+
+
+/*O LÍDER EM MOVIMENTO*/
+.olideremovimento{
+  background-color: grey;
+  height: 100vh;
+}
+
+.olideremovimento .olem-banner {
+  padding: 0%;
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  border-bottom: 2px solid #393939;
+}
+
+/*ICARUS*/
+.icarus{
+  background-color: lightskyblue;
+  height: 100vh;
+}
+
+.icarus .icarus-banner{
   padding: 0%;
   width: 100%;
   height: 60vh;
