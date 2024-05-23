@@ -93,17 +93,17 @@ body {
 .header .banner {
   padding: 0%;
   width: 100vw;
-  height: 75vh;
+  height: 100vh;
   object-fit: cover;
   border-bottom: 2px solid white;
 }
 
 .header p {
-  font-size: 30px;
+  font-size: 32px;
   margin-left: 9%;
   width: 35%;
   color: white;
-  margin-top: -27%;
+  margin-top: -29%;
 }
 
 .sidepanel {
@@ -177,7 +177,7 @@ body {
   font-size: 75px;
   margin: 0;
   margin-left: 2%;
-  margin-top: 7%;
+  margin-top: 11%;
 }
 
 .sobre span {
@@ -266,7 +266,7 @@ body {
 
 .casteloseruinas {
   background-color: black;
-  height: 100vh;
+  height: 170vh;
 }
 
 .casteloseruinas .bk-bloco {
@@ -283,9 +283,10 @@ body {
   margin-left: 2%;
   width: 55%;
   color: black;
-  margin-top: -17%;
+  margin-top: -16%;
   position: relative;
 }
+
 .casteloseruinas p {
   font-family: 'poppins';
   font-size: 13px;
@@ -293,20 +294,21 @@ body {
   margin-left: 70%;
   width: 30%;
   color: black;
-  margin-top: -110px;
+  margin-top: -128px;
   position: relative;
 }
 
-
 .capa-cer {
-  height: 25vh;
-  width: 15vw;
-
+  height: 45vh;
+  width: 20vw;
+  
 }
 
 .texto-cer {
-  font-size: 25px;
+  font-size: 20px;
   font-family: 'timesnewerroman';
+  margin-left: 35px;
+  margin-right: 700px;
 }
 
 
