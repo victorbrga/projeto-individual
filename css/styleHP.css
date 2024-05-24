@@ -266,7 +266,7 @@ body {
 
 .casteloseruinas {
   background-color: black;
-  height: 170vh;
+  height: 185vh;
 }
 
 .casteloseruinas .bk-bloco {
@@ -298,17 +298,38 @@ body {
   position: relative;
 }
 
+.container-cer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .capa-cer {
   height: 45vh;
   width: 20vw;
+  border: 1px solid grey;
+  bottom: 100px;
   
+}
+.imagem-cer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  margin-right: 2%;
 }
 
 .texto-cer {
   font-size: 20px;
   font-family: 'timesnewerroman';
-  margin-left: 35px;
-  margin-right: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  padding-top: 10%;
 }
 
 
