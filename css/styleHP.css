@@ -265,8 +265,8 @@ body {
 /* CASTELOS & RUÍNAS */
 
 .casteloseruinas {
-  background-color: black;
-  height: 185vh;
+  background-color: #373737;
+  height: 200vh;
 }
 
 .casteloseruinas .bk-bloco {
@@ -285,6 +285,7 @@ body {
   color: black;
   margin-top: -16%;
   position: relative;
+  font-weight: 1000;
 }
 
 .casteloseruinas p {
@@ -298,7 +299,7 @@ body {
   position: relative;
 }
 
-.container-cer{
+.container-cer {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -312,7 +313,7 @@ body {
   bottom: 100px;
 }
 
-.imagem-cer{
+.imagem-cer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -332,11 +333,25 @@ body {
   padding-top: 10%;
 }
 
+#img-trackcer .image {
+  width: 24vmin;
+  height: 30vmin;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid grey;
+}
+
+.texto-cer #img-trackcer {
+  display: flex;
+  gap: 1vmin;
+  justify-content: center;
+}
+
 
 /* GIGANTES */
 .gigantes {
   background-color: #242a5c;
-  height: 185vh;
+  height: 270vh;
 }
 
 .gigantes .correria-banner {
@@ -347,7 +362,7 @@ body {
   border-bottom: 2px solid #393939;
 }
 
-.container-gigantes{
+.container-gigantes {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -361,7 +376,7 @@ body {
   bottom: 100px;
 }
 
-.imagem-gigantes{
+.imagem-gigantes {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -381,11 +396,33 @@ body {
   padding-top: 10%;
 }
 
+.texto-gigantes p {
+  font-family: 'Poppins';
+  font-size: 53px;
+  color: #c09642;
+  font-weight: 800;
+  margin-bottom: 0;
+}
+
+#img-trackgigantes .image {
+  width: 24vmin;
+  height: 30vmin;
+  object-fit: cover;
+  object-position: center;
+  border: 3px solid #c09642;
+}
+
+.texto-gigantes #img-trackgigantes {
+  display: flex;
+  gap: 1vmin;
+  justify-content: center;
+}
+
 
 /*O LÍDER EM MOVIMENTO*/
-.olideremovimento{
-  background-color: grey;
-  height: 100vh;
+.olideremovimento {
+  background-color: black;
+  height: 215vh;
 }
 
 .olideremovimento .olem-banner {
@@ -396,16 +433,112 @@ body {
   border-bottom: 2px solid #393939;
 }
 
-/*ICARUS*/
-.icarus{
-  background-color: lightskyblue;
-  height: 100vh;
+.container-olem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.icarus .icarus-banner{
+.capa-olem {
+  height: 45vh;
+  width: 20vw;
+  border: 1px solid grey;
+  bottom: 100px;
+}
+
+.imagem-olem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  margin-right: 2%;
+}
+
+.texto-olem {
+  font-size: 20px;
+  font-family: 'timesnewerroman';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  padding-top: 10%;
+}
+
+#img-trackolem .image {
+  width: 24vmin;
+  height: 30vmin;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid grey;
+}
+
+.texto-olem #img-trackolem {
+  display: flex;
+  gap: 1vmin;
+  justify-content: center;
+}
+
+/*ICARUS*/
+.icarus {
+  background-color: lightskyblue;
+  height: 350vh;
+}
+
+.icarus .icarus-banner {
   padding: 0%;
   width: 100%;
   height: 60vh;
   object-fit: cover;
   border-bottom: 2px solid #393939;
+}
+
+.container-icarus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.capa-icarus {
+  height: 45vh;
+  width: 20vw;
+  border: 1px solid grey;
+  bottom: 100px;
+}
+
+.imagem-icarus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  margin-right: 2%;
+}
+
+.texto-icarus {
+  font-size: 20px;
+  font-family: 'timesnewerroman';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  padding-top: 10%;
+}
+
+#img-trackicarus .image {
+  width: 24vmin;
+  height: 30vmin;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid grey;
+}
+
+.texto-icarus #img-trackicarus {
+  display: flex;
+  gap: 1vmin;
+  justify-content: center;
 }
