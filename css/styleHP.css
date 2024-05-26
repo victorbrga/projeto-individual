@@ -310,8 +310,8 @@ body {
   width: 20vw;
   border: 1px solid grey;
   bottom: 100px;
-  
 }
+
 .imagem-cer{
   display: flex;
   flex-direction: column;
@@ -336,7 +336,7 @@ body {
 /* GIGANTES */
 .gigantes {
   background-color: #242a5c;
-  height: 100vh;
+  height: 185vh;
 }
 
 .gigantes .correria-banner {
@@ -345,6 +345,40 @@ body {
   height: 60vh;
   object-fit: cover;
   border-bottom: 2px solid #393939;
+}
+
+.container-gigantes{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.capa-gigantes {
+  height: 45vh;
+  width: 20vw;
+  border: 1px solid gold;
+  bottom: 100px;
+}
+
+.imagem-gigantes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  margin-right: 2%;
+}
+
+.texto-gigantes {
+  font-size: 20px;
+  font-family: 'timesnewerroman';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  padding-top: 10%;
 }
 
 
