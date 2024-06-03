@@ -32,9 +32,10 @@ body {
   margin: 0%;
   padding: 0%;
   font-family: 'poppins', monospace;
-  background-color: black;
+  background-color: #1C1C1C;
   margin: 0rem;
   overflow-x: hidden;
+  color: white;
 }
 
 
@@ -99,11 +100,11 @@ body {
 }
 
 .header p {
-  font-size: 32px;
+  font-size: 30px;
   margin-left: 9%;
   width: 35%;
   color: white;
-  margin-top: -29%;
+  margin-top: -32%;
 }
 
 .sidepanel {
@@ -167,17 +168,30 @@ body {
 }
 
 .sobre {
-  background-color: black;
-  height: 55vh;
+  background-color: #1C1C1C;
+  height: 265vh;
+  margin-right: 215px;
+  margin-left: 215px;
   /* border-bottom: 2px solid #393939; */
+}
+
+.bkshow-sobre{
+  position: cover;
+width: 55vw;
+height: 65vh;
+border: 1px solid white;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .sobre-title {
   color: white;
-  font-size: 75px;
+  font-family: 'thesignature';
+  font-size: 155px;
   margin: 0;
   margin-left: 2%;
-  margin-top: 11%;
+  margin-top: 20%;
 }
 
 .sobre span {
@@ -231,6 +245,7 @@ body {
   font-size: 20px;
   display: flex;
   justify-content: center;
+  font-weight: 550;
 }
 
 #img-track .image {
@@ -265,8 +280,8 @@ body {
 /* CASTELOS & RUÍNAS */
 
 .casteloseruinas {
-  background-color: #373737;
-  height: 230vh;
+  background-color: #292525;
+  height: 250vh;
 }
 
 .casteloseruinas .bk-bloco {
@@ -274,28 +289,24 @@ body {
   width: 100%;
   height: 60vh;
   object-fit: cover;
-  border-bottom: 2px solid #393939;
+  border-bottom: 2px solid black;
 }
 
-.casteloseruinas h3 {
+.title-cer{
+  font-size: 95px;
+  color: white;
   font-family: 'thesignature';
-  font-size: 40px;
-  margin-left: 2%;
-  width: 55%;
-  color: black;
-  margin-top: -16%;
-  position: relative;
-  font-weight: 1000;
+  margin-top: 5%;
 }
 
 .casteloseruinas p {
   font-family: 'poppins';
   font-size: 13px;
   font-style: italic;
-  margin-left: 70%;
+  margin-left: 65%;
   width: 30%;
   color: black;
-  margin-top: -128px;
+  margin-top: -270px;
   position: relative;
 }
 
@@ -318,7 +329,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  margin-top: -10%;
   margin-right: 2%;
 }
 
@@ -334,7 +345,7 @@ body {
 }
 
 #img-trackcer .image {
-  width: 24vmin;
+  width: 28vmin;
   height: 30vmin;
   object-fit: cover;
   object-position: center;
@@ -343,7 +354,7 @@ body {
 
 .texto-cer #img-trackcer {
   display: flex;
-  gap: 1vmin;
+  gap: 3vmin;
   justify-content: center;
 }
 
@@ -351,8 +362,9 @@ body {
 /* GIGANTES */
 .gigantes {
   background-color: #242a5c;
-  height: 330vh;
+  height: 370vh;
 }
+
 
 .gigantes .correria-banner {
   padding: 0%;
@@ -360,6 +372,13 @@ body {
   height: 60vh;
   object-fit: cover;
   border-bottom: 2px solid #393939;
+}
+
+.gigantes-title{
+  font-size: 145px;
+  color: #c09642;
+  font-family: 'thesignature';
+  margin-top: -20%;
 }
 
 .container-gigantes {
@@ -381,7 +400,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  margin-top: -35%;
   margin-right: 2%;
 }
 
@@ -397,15 +416,15 @@ body {
 }
 
 .texto-gigantes p {
-  font-family: 'Poppins';
-  font-size: 53px;
+  font-family: 'thesignature';
+  font-size: 120px;
   color: #c09642;
-  font-weight: 800;
+  margin-top: 5%;
   margin-bottom: 0;
 }
 
 #img-trackgigantes .image {
-  width: 24vmin;
+  width: 28vmin;
   height: 30vmin;
   object-fit: cover;
   object-position: center;
@@ -414,7 +433,7 @@ body {
 
 .texto-gigantes #img-trackgigantes {
   display: flex;
-  gap: 1vmin;
+  gap: 3vmin;
   justify-content: center;
 }
 
@@ -430,8 +449,16 @@ body {
   width: 100%;
   height: 60vh;
   object-fit: cover;
-  border-bottom: 2px solid #393939;
+  border-bottom: 2px solid white;
 }
+
+.title-olem{
+  font-size: 105px;
+  color: white;
+  font-family: 'thesignature';
+  margin-top: -20%;
+}
+
 
 .container-olem {
   display: flex;
@@ -452,7 +479,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  margin-top: -6%;
   margin-right: 2%;
 }
 
@@ -463,12 +490,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 600px;
   padding-top: 10%;
 }
 
+.title-olem-1{
+  margin-left: 410px;
+  width: 1000px;
+  font-family: 'thesignature';
+  font-size: 7rem;
+  margin-top: -15%;
+}
+
 #img-trackolem .image {
-  width: 24vmin;
+  width: 28vmin;
   height: 30vmin;
   object-fit: cover;
   object-position: center;
@@ -477,14 +512,14 @@ body {
 
 .texto-olem #img-trackolem {
   display: flex;
-  gap: 1vmin;
+  gap: 3vmin;
   justify-content: center;
 }
 
 /*ICARUS*/
 .icarus {
-  background-color: #5DADE2;
-  height: 350vh;
+  background-color: #1B4F72;
+  height: 470vh;
 }
 
 .icarus .icarus-banner {
@@ -492,7 +527,14 @@ body {
   width: 100%;
   height: 60vh;
   object-fit: cover;
-  border-bottom: 2px solid #393939;
+  border-bottom: 2px solid #2E86C1;
+}
+
+.title-icarus{
+  font-size: 145px;
+  color: white;
+  font-family: 'thesignature';
+  margin-top: -20%;
 }
 
 .container-icarus {
@@ -530,15 +572,36 @@ body {
 }
 
 #img-trackicarus .image {
-  width: 24vmin;
+  width: 28vmin;
   height: 30vmin;
   object-fit: cover;
   object-position: center;
-  border: 1px solid grey;
+  border: 1px solid white;
 }
 
 .texto-icarus #img-trackicarus {
   display: flex;
-  gap: 1vmin;
+  gap: 3vmin;
   justify-content: center;
+}
+
+.texto-icarus p{
+  font-family: 'thesignature';
+  font-size: 100px;
+  margin-top: 10%;
+  margin-bottom: 7%;
+}
+
+.texto-icarus img{
+  width: 40vw;
+  height: 50vh;
+  border: 1px solid white;
+}
+
+.img-track-icarus{
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  height: 35vh;
+  gap: 3vh;
 }
