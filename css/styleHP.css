@@ -266,7 +266,7 @@ body {
 
 .casteloseruinas {
   background-color: #373737;
-  height: 200vh;
+  height: 230vh;
 }
 
 .casteloseruinas .bk-bloco {
@@ -351,7 +351,7 @@ body {
 /* GIGANTES */
 .gigantes {
   background-color: #242a5c;
-  height: 270vh;
+  height: 330vh;
 }
 
 .gigantes .correria-banner {
@@ -422,7 +422,7 @@ body {
 /*O LÍDER EM MOVIMENTO*/
 .olideremovimento {
   background-color: black;
-  height: 215vh;
+  height: 268vh;
 }
 
 .olideremovimento .olem-banner {
@@ -483,7 +483,7 @@ body {
 
 /*ICARUS*/
 .icarus {
-  background-color: lightskyblue;
+  background-color: #5DADE2;
   height: 350vh;
 }
 
