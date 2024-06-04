@@ -177,9 +177,9 @@ body {
 
 .bkshow-sobre{
   position: cover;
-width: 55vw;
-height: 65vh;
-border: 1px solid white;
+width: 65vw;
+height: 70vh;
+border: 1px solid grey;
 display: flex;
 justify-content: center;
 align-items: center;
