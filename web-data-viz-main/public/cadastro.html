@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BK' - Cadastro</title>
+  <link rel="shortcut icon" href="assets/icon/imgtitle.png">
+  <link rel="stylesheet" href="css/styleCadastro.css">
+</head>
+<body>
+  <div class="navbar">
+    <a href="C:\Users\victo\OneDrive\Área de Trabalho\faculdade\Pesquisa e inovação\projeto-individual\index.html"><img src="assets/icon/imgtitle.png" alt="BK' em Gigantes"></a><!--<span>Tudo sobre o rapper BK'</span> -->
+  </div>
+
+  <div class="login-box">
+    <p>Cadastro</p>
+    <form>
+      <div class="user-box">
+        <input required="" name="" type="text" id="input_nome">
+        <label>Nome completo</label>
+      </div>
+      <div class="user-box">
+        <input required="" name="" type="text" id="input_email">
+        <label>E-mail</label>
+      </div>
+      <div class="user-box">
+        <input required="" name="" type="password" id="input_senha">
+        <label>Senha</label>
+      </div>
+      <div class="user-box">
+        <input required="" name="" type="password" id="input_segundasenha">
+        <label>Confirme sua senha</label>
+      </div>
+      <div class="user-box">
+        <input required="" name="" type="text" id="input_mscfav">
+        <label>Música favorita do BK'
+          <select name="select_musicafav" id="">
+            <option value="">a</option>
+            <option value="">a</option>
+            <option value="">a</option>
+            <option value="">a</option>
+            <option value="">a</option>
+          </select>
+        </label>
+      </div>
+      <div class="user-box">
+        <input required="" name="" type="text" id="input_albumfav">
+        <label>Álbum favorito do BK'</label>
+      </div>
+      <a href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        ENTRAR
+      </a>
+    </form>
+    <p>Já tem uma conta?<a href="" class="a2"> Entre direto!</a></p>
+  </div>
+</body>
+</html>
+
+<script>
+  function cadastrar() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var confirmacaoSenhaVar = input_segundasenha.value;
+    var mscfavoritaVar = input_mscfav.value;
+    var albumfavoritoVar = input_albumfav.value;
+
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      mscfavoritaVar == "" ||
+      albumfavoritoVar == "" 
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        mscfavoritaServer: mscfavoritaVar,
+        albumfavoritoServer: albumfavoritoVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>
