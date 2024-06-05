@@ -16,7 +16,6 @@ body {
   }
   
 
-  
   .navbar img {
     width: 4vw;
     left: 3%;
@@ -26,13 +25,11 @@ body {
     position: absolute;
   }
  
-
-
   /*FORM*/
   .login-box {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 85%;
     width: 400px;
     padding: 40px;
     margin: 20px auto;
@@ -42,7 +39,6 @@ body {
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
     height: 600px;
-    margin-left: 50%;
   }
   
   .login-box p:first-child {
@@ -90,7 +86,26 @@ body {
     font-size: 12px;
   }
   
-  .login-box form a {
+  .login-box .choice-box{
+    appearance: none;
+  }
+  
+select {
+  width: 320px;
+  background-color: transparent;
+  color: white;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+option {
+  background-color: grey;
+  color: black
+}
+
+
+
+  .login-box form .btn-entrar {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -101,7 +116,7 @@ body {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     letter-spacing: 3px
   }
   
@@ -209,4 +224,21 @@ body {
     background: transparent;
     color: #aaa;
     border-radius: 5px;
+  }
+
+  .card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #e6005a 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
   }

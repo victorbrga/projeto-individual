@@ -8,12 +8,19 @@
   <link rel="shortcut icon" href="assets/icon/imgtitle.png">
   <link rel="stylesheet" href="css/styleCadastro.css">
 </head>
+
 <body>
   <div class="navbar">
-    <a href="C:\Users\victo\OneDrive\Área de Trabalho\faculdade\Pesquisa e inovação\projeto-individual\index.html"><img src="assets/icon/imgtitle.png" alt="BK' em Gigantes"></a><!--<span>Tudo sobre o rapper BK'</span> -->
+    <a href="index.html"><img src="assets/icon/imgtitle.png"
+        alt="BK' em Gigantes"></a><!--<span>Tudo sobre o rapper BK'</span> -->
   </div>
 
   <div class="login-box">
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+    </div>
     <p>Cadastro</p>
     <form>
       <div class="user-box">
@@ -32,33 +39,45 @@
         <input required="" name="" type="password" id="input_segundasenha">
         <label>Confirme sua senha</label>
       </div>
-      <div class="user-box">
-        <input required="" name="" type="text" id="input_mscfav">
-        <label>Música favorita do BK'
-          <select name="select_musicafav" id="">
-            <option value="">a</option>
-            <option value="">a</option>
-            <option value="">a</option>
-            <option value="">a</option>
-            <option value="">a</option>
-          </select>
-        </label>
+      <div class="choice-box">
+
+        <label>Música favorita do BK'</label><br>
+        <select name="select_musicafav" id="select_musicafav">
+          <option value="">a</option>
+          <option value="">a</option>
+          <option value="">a</option>
+          <option value="">a</option>
+          <option value="">a</option>
+        </select> <br>
       </div>
-      <div class="user-box">
-        <input required="" name="" type="text" id="input_albumfav">
+      <div class="choice-box">
         <label>Álbum favorito do BK'</label>
+        <br>
+        <select name="select_musicafav" id="select_musicafav">
+          <option value=""></option>
+          <option value=""></option>
+          <option value=""></option>
+          <option value=""></option>
+          <option value=""></option>
+        </select><br>
       </div>
-      <a href="#">
+      <a href="#" class="btn-entrar">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         ENTRAR
       </a>
+      <p>Já tem uma conta?<a href="" class="a2"> Entre direto!</a></p>
     </form>
-    <p>Já tem uma conta?<a href="" class="a2"> Entre direto!</a></p>
+    <div id="div_aguardar" class="loading-div">
+      <img src="./assets/circle-loading.gif" id="loading-gif" />
+    </div>
+
+    <div id="div_erros_login"></div>
   </div>
 </body>
+
 </html>
 
 <script>
@@ -80,7 +99,7 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
       mscfavoritaVar == "" ||
-      albumfavoritoVar == "" 
+      albumfavoritoVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =

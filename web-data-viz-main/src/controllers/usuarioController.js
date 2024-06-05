@@ -58,12 +58,14 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (empresaId == undefined) {
-        res.status(400).send("Sua empresa está undefined!");
-    } else {
+    } else if (fkMusica == undefined) {
+        res.status(400).send("Sua música está undefined!");
+    } else if (fkAlbum == undefined){
+        res.status(400).send("Seu álbum está undefined")
+    } 
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, empresaId)
+        usuarioModel.cadastrar(nome, email, senha, fkMusica, fkAlbum)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -78,8 +80,8 @@ function cadastrar(req, res) {
                     res.status(500).json(erro.sqlMessage);
                 }
             );
-    }
 }
+
 
 module.exports = {
     autenticar,
