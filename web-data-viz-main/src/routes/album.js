@@ -3,8 +3,8 @@ var router = express.Router();
 
 var albumController = require("../controllers/albumController");
 
-router.get("/listar", function (req, res) {
-  albumController.listar(req, res);
+router.get("/listarAlbum", function (req, res) {
+  albumController.listarAlbum(req, res);
 });
 
 module.exports = router;

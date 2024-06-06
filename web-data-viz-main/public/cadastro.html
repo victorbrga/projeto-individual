@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -7,9 +7,10 @@
   <title>BK' - Cadastro</title>
   <link rel="shortcut icon" href="assets/icon/imgtitle.png">
   <link rel="stylesheet" href="css/styleCadastro.css">
+  <script src="js/sessao.js"></script>
 </head>
 
-<body>
+<body onload="listarAlbum(), listarMsc()">
   <div class="navbar">
     <a href="index.html"><img src="assets/icon/imgtitle.png"
         alt="BK' em Gigantes"></a><!--<span>Tudo sobre o rapper BK'</span> -->
@@ -43,14 +44,16 @@
         <label>Álbum favorito do BK'</label>
         <br>
         <select name="select_albumfav" id="select_albumfav">
+          <option value="#" disabled selected>Selecione seu álbum favorito</option>
         </select><br>
       </div>
       <div class="choice-box">
         <label>Música favorita do BK'</label><br>
         <select name="select_mscfav" id="select_mscfav">
-        </select> <br> 
+          <option value="#" disabled selected>Selecione seu música favorita</option>
+        </select> <br>
       </div>
-      <a href="#" class="btn-entrar">
+      <a class="btn-entrar" onclick="cadastrar()">
         <span></span>
         <span></span>
         <span></span>
@@ -67,7 +70,7 @@
   </div>
 </body>
 
-</html> 
+</html>
 
 <script>
   function cadastrar() {
@@ -79,16 +82,16 @@
     var emailVar = input_email.value;
     var senhaVar = input_senha.value;
     var confirmacaoSenhaVar = input_segundasenha.value;
-    var mscfavoritaVar = select_mscfav.value;
     var albumfavoritoVar = select_albumfav.value;
+    var mscfavoritaVar = select_mscfav.value;
 
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
-      mscfavoritaVar == "" ||
-      albumfavoritoVar == ""
+      albumfavoritoVar == "" ||
+      mscfavoritaVar == "" 
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -112,8 +115,8 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        mscfavoritaServer: mscfavoritaVar,
-        albumfavoritoServer: albumfavoritoVar
+        albumfavoritoServer: albumfavoritoVar,
+        mscfavoritaServer: mscfavoritaVar
       }),
     })
       .then(function (resposta) {
@@ -143,8 +146,24 @@
     return false;
   }
 
+  function listarAlbum() {
+    fetch("/album/listarAlbum", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((album) => {
+          album.forEach((album) => {
+            select_albumfav.innerHTML += `<option value='${album.idAlbum}'>${album.nome}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
   function listarMsc() {
-    fetch("/musica/listar", {
+    fetch("/musica/listarMsc", {
       method: "GET",
     })
       .then(function (resposta) {
@@ -159,24 +178,7 @@
       });
   }
 
-  
-  
-  function listarAlbum() {
-    fetch("/album/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((album) => {
-          album.forEach((album) => {
-            select_albumfav.innerHTML += `<option value='${album.idAlbum}'>${album.nome}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-  
+
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
