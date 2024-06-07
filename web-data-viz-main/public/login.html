@@ -12,7 +12,63 @@
 
 <body>
     <div class="navbar">
-        <img src="assets/icon/imgtitle.png" alt="BK' em Gigantes"> <!--<span>Tudo sobre o rapper BK'</span> -->
+        <a href="index.html"><img src="assets/icon/imgtitle.png" alt="BK' em Gigantes"></a>
+    </div>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 8</div>
+            <img src="assets/imgs/img-login/1.png" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 8</div>
+            <img src="assets/imgs/icarus/bkfoto6.png" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 8</div>
+            <img src="assets/imgs/img-login/2.png" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 8</div>
+            <img src="assets/imgs/img-login/3.png" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 8</div>
+            <img src="assets/imgs/img-login/4.png" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">6 / 8</div>
+            <img src="assets/imgs/img-login/6.png" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">7 / 7</div>
+            <img src="assets/imgs/img-login/5.png" style="width:100%">
+        </div>
+
+
+        <div class="mySlides fade">
+            <div class="numbertext">8 / 8</div>
+            <img src="assets/imgs/img-login/7.png" style="width:100%">
+        </div>
+
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 
     <div class="login-box">
@@ -22,13 +78,13 @@
             </div>
             <p>Login</p>
             <form>
-                <div class="user-box" >
+                <div class="user-box">
                     <input required="" name="" type="text" id="input_email">
                     <label>E-mail</label>
-                </div>
-                <div class="user-box">
-                    <input required="" name="" type="password" id="input_senha">
-                    <label>Senha</label>
+                    <div class="user-box">
+                        <input required="" name="" type="password" id="input_senha">
+                        <label>Senha</label>
+                    </div>
                 </div>
                 <a class="btn-entrar" onclick="entrar()">
                     <span></span>
@@ -38,11 +94,10 @@
                     ENTRAR
                 </a>
             </form>
-            <p>Ainda não tem uma conta?<a href="" class="a2"> Crie aqui!</a></p>
-            <div id="div_aguardar" class="loading-div">
-                <img src="./assets/circle-loading.gif" id="loading-gif">
+            <div id="div_aguardar" class="loading-div" style="display: none;">
+                <img  class="disco" src="./assets/3dgifmaker50677.gif" id="loading-gif">
             </div>
-
+            <p>Ainda não tem uma conta?<a href="cadastro.html" class="a2"> Crie aqui!</a></p>
             <div id="div_erros_login"></div>
         </div>
     </div>
@@ -78,7 +133,7 @@
             },
             body: JSON.stringify({
                 emailServer: emailVar,
-                senhaServer: senhaVar   
+                senhaServer: senhaVar
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -94,7 +149,7 @@
                     sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
-                        window.location = "index.html";
+                        window.location = "./dashboard/cards.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -118,5 +173,32 @@
 
     function sumirMensagem() {
         cardErro.style.display = "none"
+    }
+
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
     }
 </script>
