@@ -10,9 +10,7 @@
 
     
     <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -84,36 +82,8 @@
 
     let proximaAtualizacao;
 
-    window.onload = exibirAquariosDoUsuario();
 
-    function exibirAquariosDoUsuario() {
-        var aquarios = JSON.parse(sessionStorage.AQUARIOS);
-        aquarios.forEach(item => {
-            document.getElementById("btnAquario").innerHTML += `
-            <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-            `
 
-            document.getElementById("graficos").innerHTML += `
-                <div id="grafico${item.id}" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario${item.id}">${item.descricao}</span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas${item.id}"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura${item.id}" style="color: white"></p>
-                    </div>
-                </div>
-            `
-
-            obterDadosGrafico(item.id)
-        });
-
-        if (aquarios.length > 0) {
-            exibirAquario(aquarios[0].id)
-        }
-    }
 
     function alterarTitulo(idAquario) {
         var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)

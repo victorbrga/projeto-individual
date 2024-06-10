@@ -9,8 +9,6 @@ body {
   }
 
 
-  
-
   .navbar img {
     width: 4vw;
     left: 3%;
@@ -314,4 +312,13 @@ border-radius: 5%;
   .prev, .next,.text {font-size: 11px}
 }
 
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 130px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
 

@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #393939;
 }
 
 .label-captura {
@@ -109,7 +110,7 @@ body {
   margin-left: 30px;
 }
 
-/* pagina graficos */
+/* pagina JOGOS */
 
 .dash-header {
   background-color: #212124;
@@ -125,210 +126,119 @@ body {
   overflow: auto;
 }
 
-.area-parametros-alerta {
-  /* border: 2px solid pink; */
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  margin: auto;
-  margin-top: 10px;
-  background-color: #212124;
-}
-
-.area-parametros-alerta .titulo-legenda {
-  color: white;
-  font-weight: 600;
-  width: fit-content;
-  margin: 10px 20px;
-}
-
-.parametros-alerta {
-  display: flex;
-  width: 100%;
-}
-
-.item-regua {
-  width: 20%;
-  text-align: center;
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
-}
-
-.item-regua p {
-  margin: 0;
-  font-weight: 500;
-}
-
-.item-regua p:nth-child(2) {
-  font-weight: 800;
-}
-
-.perigo-frio {
-  background-color: #5c6bc0;
-}
-
-.perigo-quente {
-  background-color: #ff7043;
-}
-
-.alerta-frio {
-  background-color: #42a5f5;
-}
-
-.alerta-quente {
-  background-color: #ffee58;
-}
-
-.ideal {
-  background-color: #9ccc65;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 450px;
-  width: 100%;
-  align-items: center;
-  color: white;
-}
-
-.card-aquario {
-  margin: 2%;
-  min-width: 40%;
-  max-width: 50%;
-  width: fit-content;
-  flex-wrap: wrap;
-  display: flex;
-  /* text-align: center; */
-  height: 180px;
-  /* justify-content: right; */
-  background-color: #212124;
-  font-size: 20px;
-}
-
-.card-aquario h1 {
-  width: fit-content;
-}
-
-.card-aquario p {
-  margin: 0;
-  font-size: 50px;
-  font-weight: lighter;
-  text-align: left;
-}
-
-.desc-aquario {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-}
-
-.desc-aquario .cor-alerta {
-  width: 30px;
-}
 
 .title-aquario {
   width: 100%;
 }
 
 
-.cards h1 {
-  font-size: 22px;
-  border-bottom: solid white 1px;
-  text-align: left;
-  font-weight: lighter;
-  margin: 20px;
-}
-
-.temperatura,
-.umidade {
-  margin: 5px;
-  margin-left: 20px;
-  width: 75%;
-}
-
-.cor-alerta {
-  width: 13%;
-  height: 30%;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.btns-dash {
+.quiz {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 700px;
+  margin-top: 335px;
+  padding: 40px;
+  width: 780px;
+  height: fit-content;
+  background-color: white;
+  border-radius: 1%;
+}
+
+.inicio {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.iniciar {
+  border-radius: 10px;
+  background-color: #c09642;
+  color: #393939;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-left: 265px;
+}
+
+.iniciar:hover {
+  background-color: #2980b9;
+}
+
+.finalizar {
+  background-color: #c09642;
+  color: #393939;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-left: 300px;
+}
+
+.finalizar:hover {
+  background-color: #2980b9;
+}
+
+.finalizacao {
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
-  flex-wrap: wrap;
-  padding: 0 30% 0 30%;
+  display: flex;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.graph {
-  width: 70%;
-  margin: auto;
-  padding-top: 10px;
+.pergunta {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.tituloGraficos {
-  color: rgb(216, 216, 216);
+.opcoes {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.opcoes button {
+  justify-content: space-evenly;
+  border-radius: 29px;
+  padding: 9px 18px;
+  margin: 0 18px;
+  margin-bottom: 12px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.85);
+  border: transparent 1px solid;
+}
+
+.opcoes button:hover {
+  background-color: #2980b9;
+}
+
+.resposta {
+  align-items: center;
   display: flex;
   justify-content: center;
-}
-
-.btn-chart {
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border: 0;
-  font-weight: 600;
+  text-align: center;
   font-size: 18px;
-  padding: 10px 15px;
-  color: #e6005a;
-  background-color: white;
-  margin: 5px;
-  border-radius: 3px;
-  cursor: pointer
-}
-
-.btn-pink {
-  color: white;
-  background-color: #e6005a;
-}
-
-.btn-white {
-  color: #e6005a;
-  background-color: white;
-
-}
-
-.label-captura {
-  height: 80px;
-}
-
-.display-none {
-  display: none;
-}
-
-.display-flex {
-  display: flex;
-}
-
-.display-block {
-  display: block;
-}
-
-canvas {
-  width: 100% !important;
-  height: 100% !important;
+  margin-top: 20px;
 }
 
 /* PAGINA DOS GRÁFICOS 2023 */
 
 .janela {
   display: flex;
+
   /* width: 100vw; */
 }
 

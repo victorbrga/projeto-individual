@@ -16,6 +16,66 @@
         alt="BK' em Gigantes"></a><!--<span>Tudo sobre o rapper BK'</span> -->
   </div>
 
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 8</div>
+      <img src="assets/imgs/img-login/2.png" style="width:100%">
+      <div class="text">"Eu nunca perco, é tudo troca. Eu sempre deixo, o que é meu volta"</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 8</div>
+      <img src="assets/imgs/img-login/4.png " style="width:100%">
+      <div class="text">"Mas a vitória é pra quem merece, o mundo tem selecionado"</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 8</div>
+      <img src="assets/imgs/img-login/1.png" style="width:100%">
+      <div class="text">"Pense que isso é uma corrida onde não importa a volta, e não importa quem vai chegar em
+        primeiro e sim onde tu quer chegar, qual tua meta? Mostra!"</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 8</div>
+      <img src="assets/imgs/img-login/3.png" style="width:100%">
+      <div class="text">"Melhor que um líder sábio, é só um povo sábio"</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">5 / 8</div>
+      <img src="assets/imgs/img-login/7.png" style="width:100%">
+      <div class="text">"Só existe evolução porque existem fraquezas"</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">6 / 8</div>
+      <img src="assets/imgs/img-login/6.png" style="width:100%">
+      <div class="text">"
+        Se ama alguém, deixe esse alguém ficar sabendo. Deixou de amar, se afaste antes de alguém ficar sangrando"</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">7 / 8</div>
+      <img src="assets/imgs/icarus/bkfoto6.png" style="width:100%">
+      <div class="text">"Entre o errado e o certo prefiro ter os dois por perto"</div>
+    </div>
+
+
+    <div class="mySlides fade">
+      <div class="numbertext">8 / 8</div>
+      <img src="assets/imgs/img-login/5.png" style="width:100%">
+      <div class="text">"De um quadro grave faço quadro de arte, rimando a vida somos a voz da cidade"</div>
+    </div>
+
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+  </div>
+
+
   <div class="alerta_erro">
     <div class="card_erro" id="cardErro">
       <span id="mensagem_erro"></span>
@@ -61,8 +121,8 @@
         ENTRAR
       </a>
       <div id="div_aguardar" class="loading-div" style="display: none;">
-        <img  class="disco" src="./assets/3dgifmaker50677.gif" id="loading-gif">
-    </div>
+        <img class="disco" src="./assets/3dgifmaker50677.gif" id="loading-gif">
+      </div>
       <p>Já tem uma conta?<a href="login.html" class="a2"> Entre direto!</a></p>
     </form>
     <div id="div_erros_login"></div>
@@ -90,7 +150,7 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
       albumfavoritoVar == "" ||
-      mscfavoritaVar == "" 
+      mscfavoritaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -181,5 +241,33 @@
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
+
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+</script>
 
 </script>

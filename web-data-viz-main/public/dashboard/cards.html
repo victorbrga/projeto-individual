@@ -6,11 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BK' | Tempo Real</title>
+    <title>BK' | Jogos</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
 
     <script src="../js/sessao.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,7 +18,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
+<body>
 
     <div class="janela">
 
@@ -32,18 +31,18 @@
             </div>
 
             <div class="btn-nav">
-                <h3>Aquários</h3>
+                <h3>Quiz</h3>
             </div>
 
             <div class="btn-nav-white">
                 <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
+                    <h3>Complete a palavra</h3>
                 </a>
             </div>
 
             <div class="btn-nav-white">
                 <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
+                    <h3>Estatística</h3>
                 </a>
             </div>
 
@@ -53,41 +52,25 @@
 
         </div>
 
-        <div class="dash">
-            <div id="alerta">
+        <div id="quiz" class="quiz">
+            <div id="inicio">
+                <h2> O quão você conhece sobre o BK'?</h2>
+                <button class="iniciar" onclick="iniciar()">Iniciar Quiz</button>
+                <div class="pontuacao" id="pontuacao"></div>
             </div>
-            <div class="area-parametros-alerta">
-                <p class="titulo-legenda">
-                    Legenda - Parâmetros para Alertas
-                </p>
-                <div class="parametros-alerta">
-                    <div class="item-regua perigo-frio">
-                        <p>Perigo</p>
-                        <p>&lt;=5°C</p>
-                    </div>
-                    <div class="item-regua alerta-frio">
-                        <p>Alerta</p>
-                        <p>&lt;=10°C</p>
-                    </div>
-                    <div class="item-regua ideal">
-                        <p>Ideal</p>
-                        <p>20°C</p>
-                    </div>
-                    <div class="item-regua alerta-quente">
-                        <p>Alerta</p>
-                        <p>&gt;=22°C</p>
-                    </div>
-                    <div class="item-regua perigo-quente">
-                        <p>Perigo</p>
-                        <p>&gt;=23°C</p>
-                    </div>
+            <div>
+                <div class="pergunta" id="pergunta" style="display: none;"></div>
+                <div id="opcoes" class="opcoes" style="display: none;">
+                    <button id="opcao1" onclick="analisar(0)"></button>
+                    <button id="opcao2" onclick="analisar(1)"></button>
+                    <button id="opcao3" onclick="analisar(2)"></button>
+                    <button id="opcao4" onclick="analisar(3)"></button>
                 </div>
             </div>
-
-            <div class="cards" id="cardAquarios">
-
-            </div>
-
+            <div class="finalizacao" id="finalizacao"></div>
+            <div class="resposta" id="resposta"></div>
+            <button class="iniciar finalizar" id="finalizar" style="display: none;" onclick="mensagem()">Finalizar
+                Quiz</button>
         </div>
 
     </div>
@@ -95,25 +78,163 @@
 </body>
 
 <script>
+var perguntasQuiz = [
+        {
+            perguntas: "Qual era a profissão do BK' antes de se dedicar 100% para a musica?",
+            opcoes: ["a.Camelô", "b.Produtor de vídeos", "c.Atendente de Telemarketing", "d.Banqueiro"],
+            respostas: '2',
+        },
+        {
+            perguntas: "Quais integrantes faziam parte da 'Piramide Perdida?'",
+            opcoes: ["a.BK', Sain, Luccas Carlos, CHS e JXNVS", "b.Bril, BK', e Luccas Carlos", "c.DK47, BK', Sant, Froid, e JXNVS", "d.Akira Presidente, BK', Sain, Luccas Carlos, Bril, CHS e JXNVS"],
+            respostas: '4',
+        },
+        {
+            perguntas: "Quem fez as artes do álbum 'Gigantes'?",
+            opcoes: ["a.Maxwell Alexandre", "b.Johny Alexandre Gomes", "c.Margareth Telles", "d.Djanira Okereke"],
+            respostas: '1',
+        },
+        {
+            perguntas: "Qual música conta sobre a história de um homem dominado por suas procrastinações?",
+            opcoes: ["a.Antes dos Gigantes Chegarem", "b. Movimento", "c.Deus do Furdunço", "d.Top Boys"],
+            respostas: '3',
+        },
+        {
+            perguntas: "Em que ano BK' lançou o EP 'O Líder em Movimento'",
+            opcoes: ["a.2018", "b.2023", "c.2021", "d.2020"],
+            respostas: '4',
+        },
+        {
+            perguntas: "COMPLETE A LETRA: Correndo como se tivesse mais de dois pés...",
+            opcoes: ["a.Pra gastar mais de mil na noite", "b.Pra que a vida não seque hoje", "c.Pra gastar duas pernas na noite", "d.Pra comprar mais tênis a noite"],
+            respostas: '3',
+        },
+        {
+            perguntas: "Em que projeto o artista aborda parte da mitologia grega?",
+            opcoes: ["a.Antes dos Gigantes Chegarem Vol. 2", "b.Icarus", "c.Antes dos Gigantes Chegarem Vol. 1", "d.Cidade do Pecado"],
+            respostas: '2',
+        },
+        {
+            perguntas: "Qual o nome real do rapper?",
+            opcoes: ["a.Bruno Karkson", "b.Abner Kristoff", "c. Anizio Bruno Kennedy", "d.Abebe Bikila"],
+            respostas: '4',
+        },
+        {
+            perguntas: "Qual é o projeto que BK' quer passar uma dualidade entre estar no lugar de um 'Rei' e 'Plebeu'?",
+            opcoes: ["a.Castelos & Ruínas", "b.Gigantes", "c.Pirâmide Perdida", "d.O Líder em Movimento"],
+            respostas: '1',
 
-    function exibirAquarios() {
-        JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
-            document.getElementById("cardAquarios").innerHTML += `
-                    <div class="card-aquario">
-                        <div class="title-aquario">
-                            <h1>${item.descricao}</h1>
-                        </div>
-                        <div class="desc-aquario">
-                        <div class="temperatura">
-                            <p id="temp_aquario_${item.id}">-°C</p>
-                        </div>
-                        <div class="cor-alerta" id="card_${item.id}"></div>
-                    </div>
-                    </div>
-                    `
-        });
+        },
+        {
+            perguntas: "Qual marca patrocina o Bloco 7?",
+            opcoes: ["a.Nike", "b.Adidas", "c.New Balance", "d.Rider"],
+            respostas: '2',
+
+        }
+    ];
+
+    var perguntaAtual = 0;
+    var pontuacao = 0;
+    var pontuacaodashboard = 0;
+
+    const b_usuario = document.getElementById('b_usuario');
+    if (sessionStorage.NOME_USUARIO) {
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    } else {
+        b_usuario.innerHTML = 'usuário';
+    }
+    function obterIdUsuario() {
+        return sessionStorage.ID_USUARIO || 'desconhecido';
+    }
+    function embaralharPerguntas() {
+        for (var index = perguntasQuiz.length - 1; index > 0; index--) {
+            var aleatorio = Math.floor(Math.random() * (index + 1));
+            var agora = perguntasQuiz[index];
+            perguntasQuiz[index] = perguntasQuiz[aleatorio];
+            perguntasQuiz[aleatorio] = agora;
+        }
     }
 
+    function iniciar() {
+        embaralharPerguntas();
+        inicio.style.display = "none";
+        quiz.style.display = "block";
+        opcoes.style.display = 'block'
+        pergunta.style.display = 'block'
+
+        mostrarPergunta();
+    }
+
+    function mostrarPergunta() {
+        if (perguntaAtual < perguntasQuiz.length) {
+            pergunta.innerHTML = perguntasQuiz[perguntaAtual].perguntas;
+            opcao1.innerHTML = perguntasQuiz[perguntaAtual].opcoes[0];
+            opcao2.innerHTML = perguntasQuiz[perguntaAtual].opcoes[1];
+            opcao3.innerHTML = perguntasQuiz[perguntaAtual].opcoes[2];
+            opcao4.innerHTML = perguntasQuiz[perguntaAtual].opcoes[3];
+            resposta.innerHTML = '';
+
+        } else {
+            finalizarQuiz();
+        }
+    }
+    function analisar(opcaoEscolhida) {
+        var respostaCerta = perguntasQuiz[perguntaAtual].respostas;
+        if (opcaoEscolhida == respostaCerta - 1) {
+            pontuacao++;
+            resposta.innerHTML = ' <b style="color: green;">SUA RESPOSTA ESTÁ CORRETA</b>';
+        } else {
+            resposta.innerHTML = ' <b style="color: red;">SUA RESPOSTA ESTÁ ERRADA</b>';
+        }
+        setTimeout(() => {
+            perguntaAtual++;
+            mostrarPergunta();
+        }, 1000);
+    }
+
+
+    function finalizarQuiz() {
+        const nomeUsuario = sessionStorage.NOME_USUARIO || 'usuário';
+        finalizacao.innerHTML = `VOCÊ ACERTOU ${pontuacao} DE ${perguntasQuiz.length} QUESTÕES`;
+        finalizar.style.display = "block"
+        pergunta.style.display = "none";
+        opcoes.style.display = "none";
+        resposta.style.display = "none";
+    }
+
+    function limparSessao() {
+        sessionStorage.clear();
+        window.location.href = 'dashboard.html';
+    }
+
+    function mensagem() {
+    var pontuacaoVar = pontuacao;
+    var idUsuarioVar = obterIdUsuario(); // Obtém o ID do usuário da sessão
+    fetch("/quiz/mensagem", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            pontuacaoServer: pontuacaoVar,
+            idUsuarioServer: idUsuarioVar,
+        }),
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Erro ao enviar os dados do quiz.');
+        }
+    })
+    .then(data => {
+        console.log('Dados enviados com sucesso:', data);
+        window.location.href = 'dashboard.html';
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
+}
 </script>
 
 </html>

@@ -1,6 +1,6 @@
 CREATE DATABASE bk;
 USE bk;
-DROP DATABASE bk;
+
 
 CREATE TABLE album(
 idAlbum INT PRIMARY KEY auto_increment,
@@ -29,7 +29,7 @@ dtLancamento DATE,
 feat varchar(200),
 fkAlbum INT,
 FOREIGN KEY (fkAlbum) REFERENCES album(idAlbum)
-) auto_increment = 50;
+);
 
 
 INSERT INTO musica VALUES
@@ -123,8 +123,8 @@ FOREIGN KEY (fkMusica) REFERENCES musica(idMusica)
 CREATE TABLE quiz(
 idQuiz INT PRIMARY KEY auto_increment,
 fkUsuario INT,
-acertos INT,
-erros INT,
+pontuacao INT,
 tentativa INT,
+horario DATE,
 FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
 );
