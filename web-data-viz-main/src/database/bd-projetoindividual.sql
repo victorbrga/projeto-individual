@@ -124,7 +124,8 @@ CREATE TABLE quiz(
 idQuiz INT PRIMARY KEY auto_increment,
 fkUsuario INT,
 pontuacao INT,
-tentativa INT,
-horario DATE,
+horario DATE default current_timestamp,
 FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
 );
+
+SELECT * FROM quiz;
