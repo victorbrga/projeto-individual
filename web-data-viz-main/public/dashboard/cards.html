@@ -269,21 +269,24 @@
           console.log(resposta);
 
           resposta.json().then((json) => {
-            console.log(json);
-            console.log(JSON.stringify(json));
-            console.log(json.resultadoChamar_Quiz[0]);
+              console.log(json);
+              console.log(JSON.stringify(json));
+              console.log(json.resultadoChamar_Quiz[0]);
+              
+              var resultado = {
+                id: idUsuario,
+                pontuacao: pontuacao
+              }
 
-            var resultado = json.resultadoChamar_Quiz[0];
-            var pontuacaoMetrica = resultado.pontuacao;
-
-            pontuacaodashboard = pontuacaoMetrica;
-            window.location.href = `dashboard.html`;
+              SelectQuiz(resultado)              
+              pontuacaodashboard = pontuacaoMetrica;
+              window.location.href = `./dashboard/dashboard.html`;
           });
         }
       });
     }
 
-    var timeout = setTimeout(function SelectQuiz() {
+    var timeout = setTimeout(function SelectQuiz(resultado) {
       fetch("/quiz/SelectQuiz", {
         method: "POST",
         headers: {
