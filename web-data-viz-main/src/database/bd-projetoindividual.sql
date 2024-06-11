@@ -2,7 +2,6 @@ CREATE DATABASE bk;
 USE bk;
 
 
-
 CREATE TABLE album(
 idAlbum INT PRIMARY KEY auto_increment,
 nome varchar(60),

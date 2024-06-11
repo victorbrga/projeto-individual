@@ -140,19 +140,29 @@ body {
 }
 
 
-.title-aquario {
-  width: 100%;
-}
 
 
 .quiz {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-left: 400px;
   margin-top: 135px;
   padding: 40px;
+  width: 780px;
+  height: fit-content;
+  background-color: none;
+  border-radius: 1%;
+}
+.quiz_caixa{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0px;
+  margin-top: 0px;
+
   width: 780px;
   height: fit-content;
   background-color: none;
@@ -218,12 +228,21 @@ body {
   color: white;
 }
 
-.opcoes {
+.opcoes{
+  width: 550px;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+
+.div_opcoes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 .opcoes button {
   justify-content: space-evenly;
@@ -268,6 +287,7 @@ body {
   text-decoration: none;
   color: white;
   font-family: 'Poppins';
+  margin-bottom: -55%;
 }
 
 .header-left {
@@ -364,6 +384,7 @@ body {
   background-color: darkgoldenrod;
 }
 
-.myChartCanvas{
-  color: #e3b062;
+.graph{
+  width: 50%;
+  margin-left: 25px;
 }

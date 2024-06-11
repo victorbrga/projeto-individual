@@ -1,313 +1,303 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <link
-      rel="shortcut icon"
-      href="../assets/icon/imgtitle.png"
-      type="image/x-icon"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BK' | Jogos</title>
 
-    <link rel="stylesheet" href="./../css/dashboards.css" />
+<head>
+  <link rel="shortcut icon" href="../assets/icon/imgtitle.png" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BK' | Jogos</title>
 
-    <script src="../js/sessao.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <link rel="stylesheet" href="./../css/dashboards.css" />
 
-  <body>
-    <div class="janela">
-      <div class="header-left dash-header">
-       <a href="../index.html"><img src="../assets/icon/imgtitle.png"></a>
+  <script src="../js/sessao.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+</head>
 
-        <div class="hello">
-          <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-        </div>
+<body>
+  <div class="janela">
+    <div class="header-left dash-header">
+      <a href="../index.html"><img src="../assets/icon/imgtitle.png"></a>
 
-        <div class="btn-nav">
-          <h3>Quiz</h3>
-        </div>
-
-        <div class="btn-nav-white">
-          <a href="./dashboard.html">
-            <h3>Estatísticas</h3>
-          </a>
-        </div>
-
-
-        <div class="btn-logout" onclick="limparSessao()">
-          <h3>Voltar para Home</h3>
-        </div>
+      <div class="hello">
+        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
       </div>
 
-      <div id="quiz" class="quiz">
-        <div id="inicio">
-          <h2 style="color: white; font-weight: 800; font-size: 70px; width: 500px;">Mostre o quanto você sabe sobre o BK'</h2><br>
-          <img src="../assets/imgs/bk-imgs/bk-rapper-cantor-rap-icarus-foto-lucas-nogueira-thenogueira.jpg" alt="">
-          <button class="iniciar" onclick="iniciar()">Iniciar</button>
-          <div class="pontuacao" id="pontuacao"></div>
-        </div>
-        <div>
-          <div class="pergunta" id="pergunta" style="display: none"></div>
-          <div id="opcoes" class="opcoes" style="display: none">
-            <button id="opcao1" onclick="analisar(0)"></button>
-            <button id="opcao2" onclick="analisar(1)"></button>
-            <button id="opcao3" onclick="analisar(2)"></button>
-            <button id="opcao4" onclick="analisar(3)"></button>
-          </div>
-        </div>
-        <div class="finalizacao" id="finalizacao"></div>
-        <div class="resposta" id="resposta"></div>
-        <button
-          class="iniciar finalizar"
-          id="finalizar"
-          style="display: none"
-          onclick="mensagem()"
-        >
-          Finalizar tentativa
-        </button>
+      <div class="btn-nav">
+        <h3>Quiz</h3>
+      </div>
+
+      <div class="btn-nav-white">
+        <a href="./dashboard.html">
+          <h3>Estatísticas</h3>
+        </a>
+      </div>
+
+
+      <div class="btn-logout">
+        <a href="../index.html"><h3>Voltar para Home</h3></a>
       </div>
     </div>
-  </body>
 
-  <script>
-    var perguntasQuiz = [
-      {
-        perguntas:
-          "Qual era a profissão do BK' antes de se dedicar 100% para a musica?",
-        opcoes: [
-          "a.Camelô",
-          "b.Produtor de vídeos",
-          "c.Atendente de Telemarketing",
-          "d.Banqueiro",
-        ],
-        respostas: "2",
-      },
-      {
-        perguntas: "Quais integrantes faziam parte da 'Piramide Perdida?'",
-        opcoes: [
-          "a.BK', Sain, Luccas Carlos, CHS e JXNVS",
-          "b.Bril, BK', e Luccas Carlos",
-          "c.DK47, BK', Sant, Froid, e JXNVS",
-          "d.Akira Presidente, BK', Sain, Luccas Carlos, Bril, CHS e JXNVS",
-        ],
-        respostas: "4",
-      },
-      {
-        perguntas: "Quem fez as artes do álbum 'Gigantes'?",
-        opcoes: [
-          "a.Maxwell Alexandre",
-          "b.Johny Alexandre Gomes",
-          "c.Margareth Telles",
-          "d.Djanira Okereke",
-        ],
-        respostas: "1",
-      },
-      {
-        perguntas:
-          "Qual música conta sobre a história de um homem dominado por suas procrastinações?",
-        opcoes: [
-          "a.Antes dos Gigantes Chegarem",
-          "b. Movimento",
-          "c.Deus do Furdunço",
-          "d.Top Boys",
-        ],
-        respostas: "3",
-      },
-      {
-        perguntas: "Em que ano BK' lançou o álbum 'O Líder em Movimento'",
-        opcoes: ["a.2018", "b.2023", "c.2021", "d.2020"],
-        respostas: "4",
-      },
-      {
-        perguntas:
-          "COMPLETE A LETRA: Correndo como se tivesse mais de dois pés...",
-        opcoes: [
-          "a.Pra gastar mais de mil na noite",
-          "b.Pra que a vida não seque hoje",
-          "c.Pra gastar duas pernas na noite",
-          "d.Pra comprar mais tênis a noite",
-        ],
-        respostas: "3",
-      },
-      {
-        perguntas: "Em que projeto o artista aborda parte da mitologia grega?",
-        opcoes: [
-          "a.Antes dos Gigantes Chegarem Vol. 2",
-          "b.Icarus",
-          "c.Antes dos Gigantes Chegarem Vol. 1",
-          "d.Cidade do Pecado",
-        ],
-        respostas: "2",
-      },
-      {
-        perguntas: "Qual o nome real do rapper?",
-        opcoes: [
-          "a.Bruno Karkson",
-          "b.Abner Kristoff",
-          "c. Anizio Bruno Kennedy",
-          "d.Abebe Bikila",
-        ],
-        respostas: "4",
-      },
-      {
-        perguntas:
-          "Qual é o projeto que BK' quer passar uma dualidade entre estar no lugar de um 'Rei' e 'Plebeu'?",
-        opcoes: [
-          "a.Castelos & Ruínas",
-          "b.Gigantes",
-          "c.Pirâmide Perdida",
-          "d.O Líder em Movimento",
-        ],
-        respostas: "1",
-      },
-      {
-        perguntas: "Qual marca patrocina o Bloco 7?",
-        opcoes: ["a.Nike", "b.Adidas", "c.New Balance", "d.Rider"],
-        respostas: "2",
-      },
-    ];
+    <div id="quiz" class="quiz">
+      <div id="inicio">
+        <h2 style="color: white; font-weight: 800; font-size: 70px; width: 500px;">Mostre o quanto você sabe sobre o BK'
+        </h2><br>
+        <img src="../assets/imgs/bk-imgs/bk-rapper-cantor-rap-icarus-foto-lucas-nogueira-thenogueira.jpg" alt="">
+        <button class="iniciar" onclick="iniciar()">Iniciar</button>
+        <div class="pontuacao" id="pontuacao"></div>
+      </div>
+      <div class="pergunta" id="pergunta" style="display: none"></div>
+      <div class="quiz_caixa">
+        <div></div>
+        <div id="opcoes" class="opcoes" style="display: none">
+          <div class="div_opcoes"><button id="opcao1" onclick="analisar(0)"></button>
+          <button id="opcao2" onclick="analisar(1)"></button>
+        </div>
+        <div class="div_opcoes"><button id="opcao3" onclick="analisar(2)"></button>
+        <button id="opcao4" onclick="analisar(3)"></button>
+      </div>
+      </div>
+    </div>
+    <div class="finalizacao" id="finalizacao"></div>
+    <div class="resposta" id="resposta"></div>
+    <button class="iniciar finalizar" id="finalizar" style="display: none" onclick="mensagem()">
+      Finalizar tentativa
+    </button>
+  </div>
+  </div>
+</body>
 
-    var perguntaAtual = 0;
-    var pontuacao = 0;
-    var pontuacaodashboard = 0;
+<script>
+  var perguntasQuiz = [
+    {
+      perguntas:
+        "Qual era a profissão do BK' antes de se dedicar 100% para a musica?",
+      opcoes: [
+        "a.Camelô",
+        "b.Produtor de vídeos",
+        "c.Atendente de Telemarketing",
+        "d.Banqueiro",
+      ],
+      respostas: "2",
+    },
+    {
+      perguntas: "Quais integrantes faziam parte da 'Piramide Perdida?'",
+      opcoes: [
+        "a.BK', Sain, Luccas Carlos, CHS e JXNVS",
+        "b.Bril, BK', e Luccas Carlos",
+        "c.DK47, BK', Sant, Froid, e JXNVS",
+        "d.Akira Presidente, BK', Sain, Luccas Carlos, Bril, CHS e JXNVS",
+      ],
+      respostas: "4",
+    },
+    {
+      perguntas: "Quem fez as artes do álbum 'Gigantes'?",
+      opcoes: [
+        "a.Maxwell Alexandre",
+        "b.Johny Alexandre Gomes",
+        "c.Margareth Telles",
+        "d.Djanira Okereke",
+      ],
+      respostas: "1",
+    },
+    {
+      perguntas:
+        "Qual música conta sobre a história de um homem dominado por suas procrastinações?",
+      opcoes: [
+        "a.Antes dos Gigantes Chegarem",
+        "b. Movimento",
+        "c.Deus do Furdunço",
+        "d.Top Boys",
+      ],
+      respostas: "3",
+    },
+    {
+      perguntas: "Em que ano BK' lançou o álbum 'O Líder em Movimento'",
+      opcoes: ["a.2018", "b.2023", "c.2021", "d.2020"],
+      respostas: "4",
+    },
+    {
+      perguntas:
+        "COMPLETE A LETRA: Correndo como se tivesse mais de dois pés...",
+      opcoes: [
+        "a.Pra gastar mais de mil na noite",
+        "b.Pra que a vida não seque hoje",
+        "c.Pra gastar duas pernas na noite",
+        "d.Pra comprar mais tênis a noite",
+      ],
+      respostas: "3",
+    },
+    {
+      perguntas: "Em que projeto o artista aborda parte da mitologia grega?",
+      opcoes: [
+        "a.Antes dos Gigantes Chegarem Vol. 2",
+        "b.Icarus",
+        "c.Antes dos Gigantes Chegarem Vol. 1",
+        "d.Cidade do Pecado",
+      ],
+      respostas: "2",
+    },
+    {
+      perguntas: "Qual o nome real do rapper?",
+      opcoes: [
+        "a.Bruno Karkson",
+        "b.Abner Kristoff",
+        "c. Anizio Bruno Kennedy",
+        "d.Abebe Bikila",
+      ],
+      respostas: "4",
+    },
+    {
+      perguntas:
+        "Qual é o projeto que BK' quer passar uma dualidade entre estar no lugar de um 'Rei' e 'Plebeu'?",
+      opcoes: [
+        "a.Castelos & Ruínas",
+        "b.Gigantes",
+        "c.Pirâmide Perdida",
+        "d.O Líder em Movimento",
+      ],
+      respostas: "1",
+    },
+    {
+      perguntas: "Qual marca patrocina o Bloco 7?",
+      opcoes: ["a.Nike", "b.Adidas", "c.New Balance", "d.Rider"],
+      respostas: "2",
+    },
+  ];
 
-    const b_usuario = document.getElementById("b_usuario");
-    if (sessionStorage.NOME_USUARIO) {
-      b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+  var perguntaAtual = 0;
+  var pontuacao = 0;
+  var pontuacaodashboard = 0;
+
+  const b_usuario = document.getElementById("b_usuario");
+  if (sessionStorage.NOME_USUARIO) {
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+  } else {
+    b_usuario.innerHTML = "usuário";
+  }
+  function obterIdUsuario() {
+    return sessionStorage.ID_USUARIO || "desconhecido";
+  }
+  function embaralharPerguntas() {
+    for (var index = perguntasQuiz.length - 1; index > 0; index--) {
+      var aleatorio = Math.floor(Math.random() * (index + 1));
+      var agora = perguntasQuiz[index];
+      perguntasQuiz[index] = perguntasQuiz[aleatorio];
+      perguntasQuiz[aleatorio] = agora;
+    }
+  }
+
+  function iniciar() {
+    embaralharPerguntas();
+    inicio.style.display = "none";
+    quiz.style.display = "block";
+    opcoes.style.display = "block";
+    pergunta.style.display = "block";
+
+    mostrarPergunta();
+  }
+
+  function mostrarPergunta() {
+    if (perguntaAtual < perguntasQuiz.length) {
+      pergunta.innerHTML = perguntasQuiz[perguntaAtual].perguntas;
+      opcao1.innerHTML = perguntasQuiz[perguntaAtual].opcoes[0];
+      opcao2.innerHTML = perguntasQuiz[perguntaAtual].opcoes[1];
+      opcao3.innerHTML = perguntasQuiz[perguntaAtual].opcoes[2];
+      opcao4.innerHTML = perguntasQuiz[perguntaAtual].opcoes[3];
+      resposta.innerHTML = "";
     } else {
-      b_usuario.innerHTML = "usuário";
+      finalizarQuiz();
     }
-    function obterIdUsuario() {
-      return sessionStorage.ID_USUARIO || "desconhecido";
+  }
+  function analisar(opcaoEscolhida) {
+    var respostaCerta = perguntasQuiz[perguntaAtual].respostas;
+    if (opcaoEscolhida == respostaCerta - 1) {
+      pontuacao++;
+      resposta.innerHTML =
+        ' <b style="color: green;">RESPOSTA CORRETA</b>';
+    } else {
+      resposta.innerHTML =
+        ' <b style="color: red;">RESPOSTA INCORRETA</b>';
     }
-    function embaralharPerguntas() {
-      for (var index = perguntasQuiz.length - 1; index > 0; index--) {
-        var aleatorio = Math.floor(Math.random() * (index + 1));
-        var agora = perguntasQuiz[index];
-        perguntasQuiz[index] = perguntasQuiz[aleatorio];
-        perguntasQuiz[aleatorio] = agora;
-      }
-    }
-
-    function iniciar() {
-      embaralharPerguntas();
-      inicio.style.display = "none";
-      quiz.style.display = "block";
-      opcoes.style.display = "block";
-      pergunta.style.display = "block";
-
+    setTimeout(() => {
+      perguntaAtual++;
       mostrarPergunta();
-    }
+    }, 1000);
+  }
 
-    function mostrarPergunta() {
-      if (perguntaAtual < perguntasQuiz.length) {
-        pergunta.innerHTML = perguntasQuiz[perguntaAtual].perguntas;
-        opcao1.innerHTML = perguntasQuiz[perguntaAtual].opcoes[0];
-        opcao2.innerHTML = perguntasQuiz[perguntaAtual].opcoes[1];
-        opcao3.innerHTML = perguntasQuiz[perguntaAtual].opcoes[2];
-        opcao4.innerHTML = perguntasQuiz[perguntaAtual].opcoes[3];
-        resposta.innerHTML = "";
-      } else {
-        finalizarQuiz();
+  function finalizarQuiz() {
+    const nomeUsuario = sessionStorage.NOME_USUARIO || "usuário";
+    finalizacao.innerHTML = `VOCÊ ACERTOU ${pontuacao} DE ${perguntasQuiz.length} QUESTÕES`;
+    finalizar.style.display = "block";
+    pergunta.style.display = "none";
+    opcoes.style.display = "none";
+    resposta.style.display = "none";
+  }
+
+  function limparSessao() {
+    sessionStorage.clear();
+    window.location.href = "dashboard.html";
+  }
+
+  function mensagem() {
+    var pontuacaoVar = pontuacao;
+    fetch("/quiz/mensagem", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        pontuacaoServer: pontuacaoVar,
+        idUsuarioServer: sessionStorage.ID_USUARIO,
+      }),
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO entrar()!");
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then((json) => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          SelectQuiz()
+          window.location.href = `/dashboard/dashboard.html`;
+        });
       }
-    }
-    function analisar(opcaoEscolhida) {
-      var respostaCerta = perguntasQuiz[perguntaAtual].respostas;
-      if (opcaoEscolhida == respostaCerta - 1) {
-        pontuacao++;
-        resposta.innerHTML =
-          ' <b style="color: green;">RESPOSTA CORRETA</b>';
-      } else {
-        resposta.innerHTML =
-          ' <b style="color: red;">RESPOSTA INCORRETA</b>';
+    });
+  }
+  function SelectQuiz() {
+    fetch("/quiz/SelectQuiz", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idUsuarioServer: sessionStorage.ID_USUARIO,
+      }),
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO entrar()!");
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then((json) => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+          console.log(json.resultadoChamar_Quiz[0]);
+
+          var resultado = json.resultadoChamar_Quiz[0];
+          var pontuacaoMetrica = resultado.pontuacao;
+
+          pontuacaodashboard = pontuacaoMetrica;
+        });
       }
-      setTimeout(() => {
-        perguntaAtual++;
-        mostrarPergunta();
-      }, 1000);
-    }
+    });
+  }
 
-    function finalizarQuiz() {
-      const nomeUsuario = sessionStorage.NOME_USUARIO || "usuário";
-      finalizacao.innerHTML = `VOCÊ ACERTOU ${pontuacao} DE ${perguntasQuiz.length} QUESTÕES`;
-      finalizar.style.display = "block";
-      pergunta.style.display = "none";
-      opcoes.style.display = "none";
-      resposta.style.display = "none";
-    }
+  var timeout = setTimeout(SelectQuiz, 200);
+</script>
 
-    function limparSessao() {
-      sessionStorage.clear();
-      window.location.href = "dashboard.html";
-    }
-
-    function mensagem() {
-      var pontuacaoVar = pontuacao;
-      fetch("/quiz/mensagem", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          pontuacaoServer: pontuacaoVar,
-          idUsuarioServer: sessionStorage.ID_USUARIO,
-        }),
-      }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!");
-        if (resposta.ok) {
-          console.log(resposta);
-
-          resposta.json().then((json) => {
-              console.log(json);
-              console.log(JSON.stringify(json));
-              console.log(json.resultadoChamar_Quiz[0]);
-              
-              var resultado = {
-                id: idUsuario,
-                pontuacao: pontuacao
-              }
-
-              SelectQuiz(resultado)              
-              pontuacaodashboard = pontuacaoMetrica;
-              window.location.href = `./dashboard/dashboard.html`;
-          });
-        }
-      });
-    }
-
-    var timeout = setTimeout(function SelectQuiz(resultado) {
-      fetch("/quiz/SelectQuiz", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          idUsuarioServer: sessionStorage.ID_USUARIO,
-        }),
-      }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!");
-        if (resposta.ok) {
-          console.log(resposta);
-
-          resposta.json().then((json) => {
-            console.log(json);
-            console.log(JSON.stringify(json));
-            console.log(json.resultadoChamar_Quiz[0]);
-
-            var resultado = json.resultadoChamar_Quiz[0];
-            var pontuacaoMetrica = resultado.pontuacao;
-
-            pontuacaodashboard = pontuacaoMetrica;
-          });
-        }
-      });
-    }, 200);
-  </script>
 </html>

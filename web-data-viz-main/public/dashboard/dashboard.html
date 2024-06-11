@@ -78,7 +78,7 @@
         document.getElementById("graficos").innerHTML += `
         <div id="grafico">
             <h2 class="tituloGraficos">
-                <span id="tituloGrafico">Gráfico de tentativas</span>
+                <span id="tituloGrafico" style="color: white; margin-left: 25px;">Gráfico de tentativas</span>
             </h2>
             <div class="graph">
                 <canvas id="myChartCanvas"></canvas>
@@ -87,10 +87,9 @@
                 <p id="avisoCaptura"></p>
             </div>
         </div>
-        <br>
         <div id="grafico">
             <h2 class="tituloGraficos">
-                <span id="tituloGrafico">Gráfico de erros e acertos</span>
+                <span id="tituloGrafico" style="color: white; margin-left: 25px;">Gráfico de erros e acertos</span>
             </h2>
             <div class="graph">
                 <canvas id="myChartCanvas2"></canvas>
@@ -149,8 +148,8 @@
             datasets: [{
                 label: 'Pontuação de Cada Tentativa',
                 data: data,
-                backgroundColor: 'rgb(70,130,180)',
-                borderColor: 'rgb(70,130,180)',
+                backgroundColor: 'rgb(192,150,66)',
+                borderColor: 'rgb(150,117,52)',
                 borderWidth: 2,
                 fill: false
             }]
@@ -216,12 +215,13 @@
     function plotarGrafico2(resposta) {
         console.log('Iniciando plotagem do gráfico...');
 
-        let labels = [];
-        let data = [];
+        let labels = ['incorretas'];
+        let data = [10 - (resposta)];
+        
 
         resposta.forEach((quiz, index) => {
-            labels.push(`Tentativa ${index + 1}`);
-            data.push(quiz.pontuacao);
+            labels.push(`Acertos`, 'Erros');
+            data.push(quiz.pontuacao, 10 - quiz.pontuacao);
         });
 
         let dados = {
@@ -229,8 +229,8 @@
             datasets: [{
                 label: 'Pontuação de sua última tentativa',
                 data: data,
-                backgroundColor: 'rgb(70,130,180)',
-                borderColor: 'rgb(70,130,180)',
+                backgroundColor: ["#7D9634", "#D35536"],
+                borderColor: '#000000',
                 borderWidth: 2,
                 fill: false
             }]
