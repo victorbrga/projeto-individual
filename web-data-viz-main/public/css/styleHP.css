@@ -1,21 +1,6 @@
 @font-face {
-  font-family: 'karrik';
-  src: url(..//fonts/Karrik-Regular.woff2);
-}
-
-@font-face {
   font-family: 'timesnewerroman';
   src: url(..//fonts/TimesNewerRoman-Regular.otf);
-}
-
-@font-face {
-  font-family: 'bigjohn';
-  src: url(..//fonts/BIG\ JOHN.otf);
-}
-
-@font-face {
-  font-family: 'neuehaas';
-  src: url(..//fonts/NeueHaasDisplayBlack.ttf);
 }
 
 @font-face {
@@ -176,14 +161,13 @@ html {
   /* border-bottom: 2px solid #393939; */
 }
 
-.bkshow-sobre{
-  position: cover;
-width: 55vw;
-height: 75vh;
-border: 1px solid grey;
-display: flex;
-justify-content: center;
-align-items: center;
+.bkshow-sobre {
+  max-width: 750px;
+  position: relative;
+  border: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sobre-title {
@@ -294,7 +278,7 @@ align-items: center;
   border-bottom: 2px solid #BDC3C7;
 }
 
-.title-cer{
+.title-cer {
   font-size: 95px;
   color: white;
   font-family: 'thesignature';
@@ -377,7 +361,7 @@ align-items: center;
   border-bottom: 2px solid #c09642;
 }
 
-.gigantes-title{
+.gigantes-title {
   font-size: 145px;
   color: #c09642;
   font-family: 'thesignature';
@@ -456,7 +440,7 @@ align-items: center;
   border-bottom: 2px solid white;
 }
 
-.title-olem{
+.title-olem {
   font-size: 105px;
   color: white;
   font-family: 'thesignature';
@@ -498,7 +482,7 @@ align-items: center;
   padding-top: 10%;
 }
 
-.title-olem-1{
+.title-olem-1 {
   margin-left: 410px;
   width: 1000px;
   font-family: 'thesignature';
@@ -523,7 +507,7 @@ align-items: center;
 /*ICARUS*/
 .icarus {
   background-color: #1B4F72;
-  height: 470vh;
+  height: 430vh;
 }
 
 .icarus .icarus-banner {
@@ -535,7 +519,7 @@ align-items: center;
   border-bottom: 2px solid #2874A6;
 }
 
-.title-icarus{
+.title-icarus {
   font-size: 145px;
   color: white;
   font-family: 'thesignature';
@@ -590,23 +574,30 @@ align-items: center;
   justify-content: center;
 }
 
-.texto-icarus p{
+.texto-icarus p {
   font-family: 'thesignature';
   font-size: 100px;
   margin-top: 10%;
   margin-bottom: 7%;
 }
 
-.texto-icarus img{
+.texto-icarus img {
   width: 40vw;
   height: 50vh;
   border: 1px solid #7FB3D5;
 }
 
-.img-exposicao{
+.img-exposicao {
   display: flex;
   flex-direction: column;
   width: 30vw;
   height: 35vh;
   gap: 3vh;
+}
+
+.footer{
+  background-color: #1C1C1C;
+  padding: 60px;
+  text-align: center;
+  color: white;
 }

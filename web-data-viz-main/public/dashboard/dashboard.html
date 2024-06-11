@@ -41,19 +41,11 @@
             </div>
 
             <div class="btn-nav">
-
-                <h3>Estatística</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
+                <h3>Estatísticas</h3>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+                <h3>Voltar para Home</h3>
             </div>
 
         </div>
@@ -86,7 +78,7 @@
         document.getElementById("graficos").innerHTML += `
         <div id="grafico">
             <h2 class="tituloGraficos">
-                <span id="tituloGrafico">Gráfico de acertos e erros</span>
+                <span id="tituloGrafico">Gráfico de tentativas</span>
             </h2>
             <div class="graph">
                 <canvas id="myChartCanvas"></canvas>
@@ -95,9 +87,22 @@
                 <p id="avisoCaptura"></p>
             </div>
         </div>
-    `;
+        <br>
+        <div id="grafico">
+            <h2 class="tituloGraficos">
+                <span id="tituloGrafico">Gráfico de erros e acertos</span>
+            </h2>
+            <div class="graph">
+                <canvas id="myChartCanvas2"></canvas>
+            </div>
+            <div class="label-captura">
+                <p id="avisoCaptura"></p>
+            </div>
+        </div>
+        `;
 
         obterDadosGrafico();
+        obterDadosGrafico2();
     }
 
     function obterDadosGrafico() {
@@ -152,7 +157,7 @@
         };
 
         const config = {
-            type: 'line',
+            type: 'bar',
             data: dados,
             options: {
                 scales: {
@@ -174,6 +179,86 @@
 
         let myChart = new Chart(
             document.getElementById(`myChartCanvas`),
+            config
+        );
+    }
+
+//   GRÁFICO 2
+
+    function obterDadosGrafico2() {
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/quiz/buscarQuiz2/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idUsuarioServer: sessionStorage.ID_USUARIO
+            })
+        }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    plotarGrafico2(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico2(resposta) {
+        console.log('Iniciando plotagem do gráfico...');
+
+        let labels = [];
+        let data = [];
+
+        resposta.forEach((quiz, index) => {
+            labels.push(`Tentativa ${index + 1}`);
+            data.push(quiz.pontuacao);
+        });
+
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Pontuação de sua última tentativa',
+                data: data,
+                backgroundColor: 'rgb(70,130,180)',
+                borderColor: 'rgb(70,130,180)',
+                borderWidth: 2,
+                fill: false
+            }]
+        };
+
+        const config = {
+            type: 'pie',
+            data: dados,
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'white'
+                        }
+                    }
+                }
+            }
+        };
+
+        let myChart = new Chart(
+            document.getElementById(`myChartCanvas2`),
             config
         );
     }

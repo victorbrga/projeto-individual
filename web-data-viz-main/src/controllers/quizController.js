@@ -46,6 +46,22 @@ function buscarQuiz(req, res) {
       res.status(500).json(erro.sqlMessage);
   });
 }
+function buscarQuiz2(req, res) {
+    const limite_linhas = 1;
+    var idUsuario = req.body.idUsuarioServer;
+  
+    quizModel.buscarQuiz2(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!");
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+  }
 function buscarUltimoQuiz(req, res) {
   var idUsuario = req.body.idUsuarioServer;
 
@@ -66,6 +82,7 @@ module.exports = {
   mensagem,
     SelectQuiz,
     buscarQuiz,
+    buscarQuiz2,
     buscarUltimoQuiz
   };
 

@@ -10,14 +10,14 @@ function mensagem(idUsuario, pontuacao) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
+ 
 
 function SelectQuiz(idUsuario, pontuacao) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idUsuario, pontuacao)
     var instrucao = `SELECT pontuacao
     FROM quiz
     JOIN usuario ON fkUsuario = idUsuario
-    WHERE fkUsuario = idUsuario
+    WHERE fkUsuario = ${idUsuario}
     GROUP BY pontuacao,horario
     ORDER BY horario;`;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -30,9 +30,20 @@ function buscarQuiz(idUsuario) {
     SELECT pontuacao
         FROM quiz
         JOIN usuario ON fkUsuario = idUsuario
-        WHERE fkUsuario = idUsuario
+        WHERE fkUsuario = ${idUsuario}
         GROUP BY pontuacao,horario
         ORDER BY horario;`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function buscarQuiz2(idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idUsuario)
+    var instrucaoSql = `
+    SELECT pontuacao
+        FROM quiz
+        WHERE fkUsuario = ${idUsuario}
+        ORDER BY idQuiz DESC
+        LIMIT 1;`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -42,7 +53,7 @@ function buscarUltimoQuiz(idUsuario) {
     SELECT pontuacao
         FROM quiz
         JOIN usuario ON fkUsuario = idUsuario
-        WHERE fkUsuario = idUsuario
+        WHERE fkUsuario = ${idUsuario}
         GROUP BY pontuacao,horario
         ORDER BY horario;`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -52,5 +63,6 @@ module.exports = {
     mensagem,
     SelectQuiz,
     buscarQuiz,
+    buscarQuiz2,
     buscarUltimoQuiz
 };

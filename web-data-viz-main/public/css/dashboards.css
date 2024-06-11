@@ -1,11 +1,24 @@
-/* pagina mural */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+  font-family: 'timesnewerroman';
+  src: url(..//fonts/TimesNewerRoman-Regular.otf);
+}
+
+@font-face {
+  font-family: 'poppins';
+  src: url(..//fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'thesignature';
+  src: url(..//fonts/Thesignature.ttf);
+}
+
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins';
   background-color: #393939;
 }
 
@@ -113,7 +126,7 @@ body {
 /* pagina JOGOS */
 
 .dash-header {
-  background-color: #212124;
+  background-color: #393939;
 }
 
 .dash {
@@ -121,7 +134,7 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-color: #393939;
   height: 100vh;
   overflow: auto;
 }
@@ -142,7 +155,7 @@ body {
   padding: 40px;
   width: 780px;
   height: fit-content;
-  background-color: white;
+  background-color: none;
   border-radius: 1%;
 }
 
@@ -167,7 +180,7 @@ body {
 }
 
 .iniciar:hover {
-  background-color: #2980b9;
+  background-color: darkgoldenrod;
 }
 
 .finalizar {
@@ -182,7 +195,7 @@ body {
 }
 
 .finalizar:hover {
-  background-color: #2980b9;
+  background-color: darkgoldenrod;
 }
 
 .finalizacao {
@@ -192,6 +205,7 @@ body {
   font-size: 20px;
   margin-bottom: 20px;
   text-align: center;
+  color: white;
 }
 
 .pergunta {
@@ -201,6 +215,7 @@ body {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
+  color: white;
 }
 
 .opcoes {
@@ -216,13 +231,13 @@ body {
   padding: 9px 18px;
   margin: 0 18px;
   margin-bottom: 12px;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #c09642;
   color: rgba(0, 0, 0, 0.85);
   border: transparent 1px solid;
 }
 
 .opcoes button:hover {
-  background-color: #2980b9;
+  background-color: darkgoldenrod;
 }
 
 .resposta {
@@ -252,6 +267,7 @@ body {
 .header-left a {
   text-decoration: none;
   color: white;
+  font-family: 'Poppins';
 }
 
 .header-left {
@@ -282,7 +298,7 @@ body {
 }
 
 .header-left h1 {
-  color: #32b9cd;
+  color: #e3b062;
 }
 
 .hello {
@@ -334,12 +350,20 @@ body {
 .btn-logout {
   margin: 0;
   padding: 0;
-  width: 20%;
-  background-color: #32b9cd;
+  width: 40%;
+  background-color: #e3b062;
   color: white;
   border-radius: 10px;
   text-align: center;
   padding: 10px 15px;
   margin-bottom: 100px;
   cursor: pointer;
+}
+
+.btn-logout:hover{
+  background-color: darkgoldenrod;
+}
+
+.myChartCanvas{
+  color: #e3b062;
 }

@@ -40,21 +40,17 @@
           </a>
         </div>
 
-        <div class="btn-nav-white">
-          <a href="./mural.html">
-            <h3>aaaaa</h3>
-          </a>
-        </div>
 
         <div class="btn-logout" onclick="limparSessao()">
-          <h3>Sair</h3>
+          <h3>Voltar para Home</h3>
         </div>
       </div>
 
       <div id="quiz" class="quiz">
         <div id="inicio">
-          <h2>O quão você conhece sobre o BK'?</h2>
-          <button class="iniciar" onclick="iniciar()">Iniciar Quiz</button>
+          <h2 style="color: white; font-weight: 800; font-size: 70px; width: 500px;">Mostre o quanto você sabe sobre o BK'</h2><br>
+          <img src="../assets/imgs/bk-imgs/bk-rapper-cantor-rap-icarus-foto-lucas-nogueira-thenogueira.jpg" alt="">
+          <button class="iniciar" onclick="iniciar()">Iniciar</button>
           <div class="pontuacao" id="pontuacao"></div>
         </div>
         <div>
@@ -74,7 +70,7 @@
           style="display: none"
           onclick="mensagem()"
         >
-          Finalizar Quiz
+          Finalizar tentativa
         </button>
       </div>
     </div>
@@ -125,7 +121,7 @@
         respostas: "3",
       },
       {
-        perguntas: "Em que ano BK' lançou o EP 'O Líder em Movimento'",
+        perguntas: "Em que ano BK' lançou o álbum 'O Líder em Movimento'",
         opcoes: ["a.2018", "b.2023", "c.2021", "d.2020"],
         respostas: "4",
       },
@@ -227,10 +223,10 @@
       if (opcaoEscolhida == respostaCerta - 1) {
         pontuacao++;
         resposta.innerHTML =
-          ' <b style="color: green;">SUA RESPOSTA ESTÁ CORRETA</b>';
+          ' <b style="color: green;">RESPOSTA CORRETA</b>';
       } else {
         resposta.innerHTML =
-          ' <b style="color: red;">SUA RESPOSTA ESTÁ ERRADA</b>';
+          ' <b style="color: red;">RESPOSTA INCORRETA</b>';
       }
       setTimeout(() => {
         perguntaAtual++;

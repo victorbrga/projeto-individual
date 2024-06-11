@@ -12,6 +12,9 @@ router.post("/SelectQuiz", function (req, res) {
 router.post("/buscarQuiz", function (req, res) {
     quizController.buscarQuiz(req, res);
 });
+router.post("/buscarQuiz2", function (req, res) {
+    quizController.buscarQuiz2(req, res);
+});
 router.post("/buscarUltimoQuiz", function (req, res) {
     quizController.buscarUltimoQuiz(req, res);
 });

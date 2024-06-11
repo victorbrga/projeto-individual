@@ -2,6 +2,7 @@ CREATE DATABASE bk;
 USE bk;
 
 
+
 CREATE TABLE album(
 idAlbum INT PRIMARY KEY auto_increment,
 nome varchar(60),
@@ -120,12 +121,15 @@ FOREIGN KEY (fkAlbum) REFERENCES album(idAlbum),
 FOREIGN KEY (fkMusica) REFERENCES musica(idMusica)
 );
 
+SELECT * FROM usuario;
+
 CREATE TABLE quiz(
 idQuiz INT PRIMARY KEY auto_increment,
 fkUsuario INT,
 pontuacao INT,
-horario DATE default current_timestamp,
+tentativa INT,
+horario DATE,
 FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
 );
-
+ 
 SELECT * FROM quiz;
